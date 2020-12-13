@@ -1,0 +1,47 @@
+{
+  "name": "hookify-object",
+  "version": "0.1.0",
+  "description": "Wrap an object with ES6 proxy to add hooks capabilities",
+  "author": {
+    "name": "Axel SHAÏTA",
+    "email": "shaita.axel@gmail.com",
+    "url": "https://www.codeheroes.fr"
+  },
+  "license": "MIT",
+  "keywords": [
+    "hook",
+    "proxy",
+    "observable",
+    "eventEmitter",
+    "nodejs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arkerone/hookify-object.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arkerone/hookify-object/issues"
+  },
+  "homepage": "https://github.com/arkerone/hookify-object#readme",
+  "main": "./lib",
+  "scripts": {
+    "release": "standard-version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "eslint": "^7.15.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "husky": "^4.3.5",
+    "standard-version": "^9.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
