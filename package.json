@@ -1,6 +1,6 @@
 {
   "name": "hookify-object",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Wrap an object with ES6 proxy to add hooks capabilities",
   "author": {
     "name": "Axel SHAÏTA",
