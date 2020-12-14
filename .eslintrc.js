@@ -2,14 +2,14 @@ module.exports = {
   env: {
     commonjs: true,
     es2021: true,
-    node: true
+    mocha: true,
+    node: true,
   },
   extends: [
-    'standard'
+    'standard',
   ],
   parserOptions: {
-    ecmaVersion: 12
+    ecmaVersion: 12,
   },
-  rules: {
-  }
+  rules: {},
 }

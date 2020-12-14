@@ -1,6 +1,6 @@
 {
   "name": "hookify-object",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Wrap an object with ES6 proxy to add hooks capabilities",
   "author": {
     "name": "Axel SHAÏTA",
@@ -26,17 +26,23 @@
   "main": "./lib",
   "scripts": {
     "release": "standard-version",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "chai": "^4.2.0",
+    "codecov": "^3.8.1",
     "eslint": "^7.15.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "husky": "^4.3.5",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "sinon": "^9.2.2",
     "standard-version": "^9.0.0"
   },
   "husky": {
