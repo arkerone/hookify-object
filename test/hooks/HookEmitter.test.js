@@ -65,20 +65,18 @@ describe('HookEmitter', () => {
       () => {
         const methodName = 'test'
         const params = [1, 2, 3]
-        const promise = Promise.resolve()
         const result = 'test'
         const afterResolveSpy = sinon.spy()
         const afterResolveWIthMethodNameSpy = sinon.spy()
         hooksEmitter.on('afterResolve', afterResolveSpy)
         hooksEmitter.on(`afterResolve:${methodName}`,
           afterResolveWIthMethodNameSpy)
-        hooksEmitter.emitAfterResolve(methodName, params, promise, result)
+        hooksEmitter.emitAfterResolve(methodName, params, result)
 
         const context = {
           self: target,
           name: methodName,
           params,
-          promise,
           result,
         }
 
@@ -95,20 +93,18 @@ describe('HookEmitter', () => {
       () => {
         const methodName = 'test'
         const params = [1, 2, 3]
-        const promise = Promise.reject()
         const errors = [new Error('test')]
         const afterRejectSpy = sinon.spy()
         const afterRejectWIthMethodNameSpy = sinon.spy()
         hooksEmitter.on('afterReject', afterRejectSpy)
         hooksEmitter.on(`afterReject:${methodName}`,
           afterRejectWIthMethodNameSpy)
-        hooksEmitter.emitAfterReject(methodName, params, promise, errors)
+        hooksEmitter.emitAfterReject(methodName, params, errors)
 
         const context = {
           self: target,
           name: methodName,
           params,
-          promise,
           errors,
         }
 
