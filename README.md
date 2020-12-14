@@ -6,7 +6,7 @@ Wrap an object with ES6 proxy to add hooks capabilities through an event emitter
 
 ## Installation
 
-    $ npm install --save hookify-object  
+$ npm install --save hookify-object
 
 ## Usage
 
@@ -41,7 +41,7 @@ Here is a basic usage to get the execution time of the object's methods :
       console.timeEnd(name)  
     })  
       
-    objWithHooks.process()
+    objWithHooks.process() 
 
 ## API
 
@@ -51,38 +51,40 @@ Add hook capabilities to a target object.
 
 #### Parameters
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `target`    |   `object`    |       `-`       | `The object on which we want to add the hook capabilities` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `target`    |   `object`    |       `-`       | `The object on which we want to add the hook capabilities` |  
 
 #### Return value
 
-| Type | Description |
-|:---------------:|:---------------:|
-| `Proxy` | `The hook wrapper of the target object` |
+| Type | Description |  
+|:---------------:|:---------------:|  
+| `Proxy` | `The hook wrapper of the target object` |  
 
 #### Example
 
-    const hookify = require('hookify-object')  
-      
-    const obj = {}  
-      
-    const objWithHooks = hookify(obj)
+    const hookify = require('hookify-object')   
+          
+    const obj = {}    
+            
+    const objWithHooks = hookify(obj)  
 
 ### proxy.hooks.on(hookName, handler)
 
 Attach a handler for the hook named `hookName`.
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `hookName`    |   `string`    |       `-`       | `The hook's name` |
-|    `handler`    |   `Function`    |       `-`       | `The handler function for the specified hook (see bellow)` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `hookName`    |   `string`    |       `-`       | `The hook's name` |  
+|    `handler`    |   `Function`    |       `-`       | `The handler function for the specified hook (see bellow)` |  
 
 #### handler (context)
 
-Check each hook to know the structure of the `context` object. | Name | Type | Default | Description | | :
----------------: | :-------------: | :-------------: | :---------------------------------------------- | |    `context`
-|   `object`    |       `-`       | `Contains the context of the hook` |
+Check each hook to know the structure of the `context` object.
+
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `context`    |   `object`    |       `-`       | `Contains the context of the hook` |  
 
 ### Hooks list
 
@@ -102,11 +104,11 @@ Called before calling a method. You can specify a unique method via the `methodN
 
 #### context object
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |
-|    `name`    |   `string`    |       `-`       | `The name of the called method` |
-|    `params`    |   `Array`    |       `-`       | `The parameters of the called method` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |  
+|    `name`    |   `string`    |       `-`       | `The name of the called method` |  
+|    `params`    |   `Array`    |       `-`       | `The parameters of the called method` |  
 
 #### afterCall[:methodName]
 
@@ -120,16 +122,16 @@ Called after calling a method. You can specify a unique method via the `methodNa
       
     objWithHooks.hooks.on('afterCall:test', (context) => {  
       /* Call after the call of the "test" method */  
-    })
+    }) 
 
 #### context object
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |
-|    `name`    |   `string`    |       `-`       | `The name of the called method` |
-|    `params`    |   `Array`    |       `-`       | `The parameters of the called method` |
-|    `result`    |   `*`    |       `-`       | `The returned value of the called method` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |  
+|    `name`    |   `string`    |       `-`       | `The name of the called method` |  
+|    `params`    |   `Array`    |       `-`       | `The parameters of the called method` |  
+|    `result`    |   `*`    |       `-`       | `The returned value of the called method` |  
 
 #### afterResolve[:methodName]
 
@@ -148,12 +150,12 @@ option.
 
 #### context object
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |
-|    `name`    |   `string`    |       `-`       | `The name of the called method` |
-|    `params`    |   `Array`    |       `-`       | `The parameters of the called method` |
-|    `result`    |   `*`    |       `-`       | `The returned value of the promise` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |  
+|    `name`    |   `string`    |       `-`       | `The name of the called method` |  
+|    `params`    |   `Array`    |       `-`       | `The parameters of the called method` |  
+|    `result`    |   `*`    |       `-`       | `The returned value of the promise` |  
 
 #### afterReject[:methodName]
 
@@ -172,12 +174,12 @@ option.
 
 #### context object
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |
-|    `name`    |   `string`    |       `-`       | `The name of the called method` |
-|    `params`    |   `Array`    |       `-`       | `The parameters of the called method` |
-|    `errors`    |   `Array`    |       `-`       | `The returned errors of the promise` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |  
+|    `name`    |   `string`    |       `-`       | `The name of the called method` |  
+|    `params`    |   `Array`    |       `-`       | `The parameters of the called method` |  
+|    `errors`    |   `Array`    |       `-`       | `The returned errors of the promise` |  
 
 #### beforeSet[:propertyName]
 
@@ -195,11 +197,11 @@ Called before setting a property value. You can specify a unique property via th
 
 #### context object
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |
-|    `name`    |   `string`    |       `-`       | `The name of the property` |
-|    `value`    |   `Array`    |       `-`       | `The new value of the property to set` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |  
+|    `name`    |   `string`    |       `-`       | `The name of the property` |  
+|    `value`    |   `*`    |       `-`       | `The new value of the property to set` |  
 
 #### afterSet:[propertyName]
 
@@ -217,11 +219,11 @@ Called after setting a property value. You can specify a unique property via the
 
 #### context object
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |
-|    `name`    |   `string`    |       `-`       | `The name of the property` |
-|    `value`    |   `Array`    |       `-`       | `The new value of the property to set` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |  
+|    `name`    |   `string`    |       `-`       | `The name of the property` |  
+|    `value`    |   `*`    |       `-`       | `The new value of the property to set` |  
 
 #### beforeDelete[:propertyName]
 
@@ -240,10 +242,10 @@ option.
 
 #### context object
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |
-|    `name`    |   `string`    |       `-`       | `The name of the property` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |  
+|    `name`    |   `string`    |       `-`       | `The name of the property` |  
 
 #### afterDelete[:propertyName]
 
@@ -262,7 +264,7 @@ option.
 
 #### context object
 
-|       Name        |      Type       |     Default     | Description                                     |
-| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |
-|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |
+|       Name        |      Type       |     Default     | Description                                     |  
+| :---------------: | :-------------: | :-------------: | :---------------------------------------------- |  
+|    `self`    |   `object`    |       `-`       | `The object wrapped by the hook proxy` |  
 |    `name`    |   `string`    |       `-`       | `The name of the property` |
